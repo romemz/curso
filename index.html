@@ -21,8 +21,7 @@
         </ul>
 
         <div class="actions">
-          <a class="btn" href="#" id="contactBtn">Contacto</a>
-          <a class="btn ghost" href="#" id="portfolioBtn">Portafolio</a>
+          <a class="btn whatsapp" href="https://wa.me/8445375897" id="whatsappBtn">WhatsApp: 844 537 5897</a>
         </div>
       </div>
     </main>
@@ -35,9 +34,9 @@
       const ul = document.querySelector('.likes');
       ul.innerHTML = likes.map(l => `<li>${l}</li>`).join('');
 
-      document.getElementById('contactBtn').addEventListener('click', e => {
-        e.preventDefault();
-        alert('Puedes contactarme en: tu@email.com');
+      // El botón de WhatsApp abre la conversación en móvil/WhatsApp Web
+      document.getElementById('whatsappBtn').addEventListener('click', e => {
+        // Dejar comportamiento por defecto para abrir wa.me
       });
     </script>
   </body>
