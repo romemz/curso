@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <div class="card">
+        <div class="avatar" aria-hidden="true"></div>
+        <h1 class="name">Tu Nombre Aquí</h1>
+        <p class="tagline">Me encanta diseñar, crear y aprender cada día.</p>
+
+        <ul class="likes">
+          <li>Diseño UI/UX</li>
+          <li>Desarrollo web</li>
+          <li>Fotografía</li>
+          <li>Viajar y explorar</li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn" href="#" id="contactBtn">Contacto</a>
+          <a class="btn ghost" href="#" id="portfolioBtn">Portafolio</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Reemplaza el texto con tu nombre real y tus gustos si quieres
+      document.querySelector('.name').textContent = 'Jahir';
+      document.querySelector('.tagline').textContent = 'Me gusta diseñar interfaces limpias y construir experiencias web.';
+      const likes = ['Diseño UI/UX', 'Desarrollo web', 'Fotografía', 'Viajar'];
+      const ul = document.querySelector('.likes');
+      ul.innerHTML = likes.map(l => `<li>${l}</li>`).join('');
+
+      document.getElementById('contactBtn').addEventListener('click', e => {
+        e.preventDefault();
+        alert('Puedes contactarme en: tu@email.com');
+      });
+    </script>
+  </body>
+</html>
