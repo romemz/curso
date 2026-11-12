@@ -8,10 +8,11 @@ del equipo y **sirve** el resultado con **nginx**.
 
 ## Integrantes del equipo
 
-- _(Nombre 1)_
-- _(Nombre 2)_
-- _(Nombre 3)_
-- _(Nombre 4)_
+- Jair Eduardo
+- Rodrigo Mendez
+- Jicama Jaime
+- NuggetEduardo
+- Christian Raul
 
 ## Estructura
 
