@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="avatar" aria-hidden="true"></div>
+  <h2 class="name">{{ nombre }}</h2>
+  <p class="tagline">{{ tagline }}</p>
+
+  <ul class="likes">
+    <li *ngFor="let gusto of gustos">{{ gusto }}</li>
+  </ul>
+
+  <div class="actions">
+    <a class="btn whatsapp" [href]="'https://wa.me/' + whatsapp" target="_blank" rel="noopener">{{ whatsappTexto }}</a>
+  </div>
+</div>

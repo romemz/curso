@@ -1,0 +1,105 @@
+// Estilos originales de la tarjeta de Jahir (rama a-diaz / jahir: styles.css)
+:host {
+  --bg: #2b0f0f;
+  --card: #1a0c0c;
+  --accent: #ff4b4b;
+  --muted: #e0b8b8;
+  --glass: rgba(255, 255, 255, 0.03);
+  display: block;
+  color: #ffecec;
+}
+
+.card {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent), var(--card);
+  border: 0;
+  border-radius: 18px;
+  padding: 48px;
+  display: grid;
+  gap: 18px;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6), 0 2px 0 rgba(255, 255, 255, 0.02) inset;
+  transition: transform .5s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.75);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: conic-gradient(from 120deg, var(--accent), #ffb3b3 30%, #ffd6d6 70%, var(--accent));
+  box-shadow: 0 4px 24px rgba(255, 75, 75, 0.16);
+  border: 6px solid rgba(255, 255, 255, 0.03);
+}
+
+.name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 6px 0 0;
+  letter-spacing: 0.4px;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.likes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.likes li {
+  background: var(--glass);
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.btn {
+  background: linear-gradient(90deg, var(--accent), #ff8b8b);
+  color: #2a0707;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(255, 75, 75, 0.12);
+}
+
+.btn.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.whatsapp::before {
+  content: "\1F4F1";
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .card { padding: 28px; }
+  .name { font-size: 1.8rem; }
+  .avatar { width: 96px; height: 96px; }
+}

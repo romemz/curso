@@ -1,0 +1,23 @@
+<section class="student-card">
+  <div class="card-header">
+    <div class="avatar">{{ inicial }}</div>
+    <span class="tag">{{ etiqueta }}</span>
+  </div>
+
+  <div class="profile-info">
+    <h2>{{ nombre }}</h2>
+    <p class="subtitle">{{ subtitulo }}</p>
+  </div>
+
+  <div class="info-list">
+    <div class="info-item" *ngFor="let dato of datos">
+      <span class="label">{{ dato.label }}</span>
+      <p>{{ dato.valor }}</p>
+    </div>
+  </div>
+
+  <div class="location-card">
+    <span class="location-icon">📍</span>
+    <p>{{ ubicacion }}</p>
+  </div>
+</section>
