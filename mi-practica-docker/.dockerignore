@@ -1,0 +1,14 @@
+# El código se clona dentro del contenedor, así que no se envía nada local
+# al contexto de build excepto lo estrictamente necesario.
+.git
+.gitignore
+README.md
+docker-compose.yml
+*.tar
+*.tar.gz
+node_modules
+dist
+.angular
+.vscode
+.idea
+*.log

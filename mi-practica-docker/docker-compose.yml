@@ -1,0 +1,15 @@
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Repo público donde el equipo fusionó sus componentes de Angular
+        REPO_URL: ${REPO_URL:-https://github.com/arsenk01/angular-todo.git}
+        BRANCH: ${BRANCH:-develop}
+        APP_DIR: ${APP_DIR:-angular-todo}
+    image: mi-practica-docker/angular-nginx:1.0
+    container_name: angular-nginx
+    ports:
+      - "8080:80"
+    restart: unless-stopped
