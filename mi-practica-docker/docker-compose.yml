@@ -5,9 +5,9 @@ services:
       dockerfile: Dockerfile
       args:
         # Repo público donde el equipo fusionó sus componentes de Angular
-        REPO_URL: ${REPO_URL:-https://github.com/arsenk01/angular-todo.git}
-        BRANCH: ${BRANCH:-develop}
-        APP_DIR: ${APP_DIR:-angular-todo}
+        REPO_URL: ${REPO_URL:-https://github.com/romemz/curso.git}
+        BRANCH: ${BRANCH:-a-diaz}
+        APP_DIR: ${APP_DIR:-angular-app}
     image: mi-practica-docker/angular-nginx:1.0
     container_name: angular-nginx
     ports:

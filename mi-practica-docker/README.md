@@ -3,8 +3,23 @@
 Contenedor que **clona** un repositorio público de GitHub, **compila** la aplicación Angular
 del equipo y **sirve** el resultado con **nginx**.
 
-- Repositorio clonado: <https://github.com/arsenk01/angular-todo> (rama `develop`, carpeta `angular-todo/`)
-- Aplicación: *Angular Todo app* (Angular 15)
+- Repositorio clonado: <https://github.com/romemz/curso> (rama `a-diaz`, carpeta `angular-app/`)
+- Aplicación: *Curso - Presentaciones del equipo* (Angular 15)
+
+### Origen de la app Angular
+
+El equipo tenía sus tarjetas de presentación como HTML/CSS estático en las ramas del repo
+`romemz/curso` (`a-diaz`/`jahir` y `Jaime`). Para convertirlas en una app Angular se tomó
+**la plantilla y las dependencias** de <https://github.com/arsenk01/angular-todo>
+(`package.json`, `angular.json`, `tsconfig*.json`, `.npmrc`, `browserslist`, Bootstrap, etc.)
+y se reemplazó el código de la app de tareas por los componentes del equipo:
+
+| Componente | Origen |
+|---|---|
+| `app-presentacion-jahir` | `index.html` + `styles.css` (rama `a-diaz` / `jahir`) |
+| `app-presentacion-jaime` | `Curso/index.html` + `Curso/styles.css` (rama `Jaime`) |
+
+`AppComponent` muestra los dos componentes juntos en una sola página.
 
 ## Integrantes del equipo
 
@@ -29,7 +44,7 @@ del equipo y **sirve** el resultado con **nginx**.
 
 | Etapa | Imagen base | Qué hace |
 |---|---|---|
-| `build` | `node:18-alpine` | Instala git, `git clone --depth 1 --branch develop`, `npm install`, `ng build --configuration production` |
+| `build` | `node:18-alpine` | Instala git, `git clone --depth 1 --branch a-diaz`, entra a `angular-app/`, `npm install`, `ng build --configuration production` |
 | final | `nginx:1.27-alpine` | Copia los archivos compilados a `/usr/share/nginx/html` y los sirve en el puerto 80 (con `try_files` para las rutas de Angular) |
 
 Se usa Node 18 porque Angular 15 no es compatible con versiones más nuevas de Node.
@@ -56,7 +71,7 @@ docker compose up -d --build
 ```
 
 Resultado: la etapa `build` clonó el repositorio, instaló dependencias y compiló
-(`Initial Total 871.67 kB`, ~34 s). Se generó la imagen
+(`Initial Total 629.27 kB`, ~25 s). Se generó la imagen
 `mi-practica-docker/angular-nginx:1.0` y se inició el contenedor `angular-nginx`.
 
 ### 3. Verificar
@@ -71,10 +86,11 @@ NAME            IMAGE                                  STATUS         PORTS
 angular-nginx   mi-practica-docker/angular-nginx:1.0   Up             0.0.0.0:8080->80/tcp
 
 IMAGE                                  ID             DISK USAGE   CONTENT SIZE
-mi-practica-docker/angular-nginx:1.0   e88afa52f664   81.2MB       22.6MB
+mi-practica-docker/angular-nginx:1.0   58ffe309c193   79.3MB       22.2MB
 ```
 
-En el navegador: <http://localhost:8080> → responde `200` con el título **Angular Todo app**.
+En el navegador: <http://localhost:8080> → responde `200` con el título **Curso - Presentaciones**
+y muestra las tarjetas de Jahir y Jaime.
 
 ### 4. Guardar la imagen con `docker save`
 
@@ -82,7 +98,7 @@ En el navegador: <http://localhost:8080> → responde `200` con el título **Ang
 docker save mi-practica-docker/angular-nginx:1.0 -o angular-nginx.tar
 ```
 
-Archivo generado: `angular-nginx.tar` (21.5 MB, por debajo del límite de 100 MB de GitHub).
+Archivo generado: `angular-nginx.tar` (21.2 MB, por debajo del límite de 100 MB de GitHub).
 
 ### 5. Subir a GitHub
 
